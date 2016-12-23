@@ -1,0 +1,48 @@
+//基本的布局预设值
+@p2r:750/10;//设计图设置
+@hei:1334;//高的，计算百分比用
+//@header-height:90px;//header的设置
+//
+//
+//@footer-height:98px;//footer设置
+@header-height:0px;//header的设置
+@footer-height:0px;//footer设置
+@base_url : '../images';//配置img路径
+.px4dpr(@pro,@val){//根据dpr的变化调整px,这是以中等分辨率750px设计图为准,主要用于font-size
+  [data-dpr="1"] &{
+      @{pro}:@val/2;
+  }
+  [data-dpr="2"] &{
+      @{pro}:@val;
+  }
+  [data-dpr="3"] &{
+      @{pro}:@val/2*3;
+  }
+}
+.px2rem(@pro,@val){//px计算rem ,设计图高度30px=> px2rem(height,30rem)
+    @{pro}:@val/@p2r;
+}
+//增加转化的命名空间，适应多个参数的样式属性
+#px2rem1{
+  .border(@border,@width,@style,@color) {
+      @{border}:@width/@p2r @style @color;
+  }
+}
+#px4dpr1{
+  .border(@border,@width,@style,@color) {
+    [data-dpr="1"] &{
+        @{border}:@width/2 @style @color;
+    }
+    [data-dpr="2"] &{
+        @{border}:@width @style @color;
+    }
+    [data-dpr="3"] &{
+        @{border}:@width/2*3 @style @color;
+    }
+  }
+}
+
+//转换成高度的百分比布局
+.px2percent(@pro,@val){
+    @{pro}:(@val)/@hei/100% *100*100;
+}

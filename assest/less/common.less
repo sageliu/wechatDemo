@@ -1,0 +1,67 @@
+@charset "utf-8";
+html {
+  font-size: 12px;
+  font-family: 微软雅黑,宋体,Arial,Helvetica;
+  background: #ffffff;
+}
+/*文本超出部分显示省略号*/
+.ellipsis{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+/*禁用选中*/
+.no-select{-moz-user-select: none;-webkit-user-select: none;user-select: none;}
+/*清除浮动*/
+.clear:before, .clear:after {display: table;line-height: 0;content: ""; }
+.clear:after {clear: both; }
+ul,p{ padding: 0; margin: 0; }
+em{ font-style: normal;}
+b{ font-weight: normal;}
+img{ border:none;}
+ul,ol,li{list-style:none;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+select,input,img,select{ vertical-align:middle;}
+input,button,select,textarea{outline:none}
+i{ font-style:normal;}
+table {border-collapse:collapse;border-spacing:0;}
+.fl{ float:left;}
+.fr{ float:right;}
+.pr{ position:relative;}
+.pa{ position:absolute;}
+.w100{width:100%;}
+.b{ font-weight:bold;}
+a{text-decoration:none;}
+.text-align(@position){
+  text-align:@position;
+}
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.boder(@line,@width,@color){
+  border:@width @line @color;
+}
+//==========================基本框架,可显示区域
+.hasHead{
+  .px4dpr(top,@header-height);
+}
+.hasFoot{
+  //bottom:  98px;
+  .px4dpr(bottom,@footer-height);
+}
+.panel{
+  left: 50%;
+  margin-left: -5rem;
+  //overflow-y: auto;
+  //overflow: hidden;
+  position: absolute;
+  background: #f2f2f2;
+  top:0;
+  min-width:10rem;
+  .view{//滚动区域
+
+  }
+}
+.bgfa{background: #fafafa;}
+.green{color:#5cbc67;}
+.red{color:#e64545;}
+.grey{color:#7a7c80;}
+
